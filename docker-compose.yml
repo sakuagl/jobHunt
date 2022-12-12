@@ -1,7 +1,7 @@
 version: '3'
 services:
     web:
-        image: php:8.2.0RC7-apache
+        build: ./config/php/
         container_name: "php-apache-webserver"
         volumes:
             - "./web-server/html/:/var/www/html/"
@@ -10,7 +10,7 @@ services:
         depends_on:
             - db
     db:
-        image: mysql:8.0
+        build: ./config/mysql/
         container_name: "mysql-dbserver"
         volumes:
             - ./db-server/mysql/:/var/lib/mysql/
