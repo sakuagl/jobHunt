@@ -1,7 +1,7 @@
 <?php 
     //dbへの接続確認用
     try {
-        $dsn = 'mysql:host=mysql;dbname=db;charset=utf8';
+        $dsn = 'mysql:host=db;dbname=db;charset=utf8';
         $db = new PDO($dsn, 'user', 'password');
 
         $sql = 'SELECT version();';
