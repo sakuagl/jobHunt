@@ -1,0 +1,23 @@
+version: '3'
+services:
+    web:
+        build: ./config/php/
+        container_name: "php-apache-webserver"
+        volumes:
+            - "./web-server/html/:/var/www/html/"
+        ports:
+            - "8080:80"
+        depends_on:
+            - db
+    db:
+        build: ./config/mysql/
+        container_name: "mysql-dbserver"
+        volumes:
+            - ./db-server/mysql/:/var/lib/mysql/
+        ports:
+            - "4306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=db
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=password
